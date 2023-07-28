@@ -9,6 +9,12 @@ use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\VerifikasiController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
+
+if (env('APP_ENV') === 'production') {
+    URL::forceSchema('https');
+}
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('pengaduan', [PengaduanController::class, 'index'])->name('pengaduan');
